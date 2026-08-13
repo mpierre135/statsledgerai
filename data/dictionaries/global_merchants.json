@@ -1,0 +1,39 @@
+{
+  "merchants": {
+    "amazon": "Expenses:Office:Supplies",
+    "amzn": "Expenses:Office:Supplies",
+    "starbucks": "Expenses:Meals",
+    "shell oil": "Expenses:Automobile",
+    "uber": "Expenses:Travel",
+    "lyft": "Expenses:Travel",
+    "adobe": "Expenses:Software",
+    "google workspace": "Expenses:Software",
+    "microsoft": "Expenses:Software",
+    "stripe": "Expenses:BankFees",
+    "quickbooks": "Expenses:Software",
+    "staples": "Expenses:Office:Supplies",
+    "office depot": "Expenses:Office:Supplies",
+    "facebook ads": "Expenses:Advertising",
+    "meta ads": "Expenses:Advertising",
+    "google ads": "Expenses:Advertising",
+    "state farm": "Expenses:Insurance",
+    "geico": "Expenses:Insurance",
+    "verizon": "Expenses:Utilities",
+    "at&t": "Expenses:Utilities",
+    "costco": "Expenses:COGS",
+    "sysco": "Expenses:COGS",
+    "home depot": "Expenses:Repairs"
+  },
+  "keywords": {
+    "insurance": "Expenses:Insurance",
+    "premium": "Expenses:Insurance",
+    "advertising": "Expenses:Advertising",
+    "marketing": "Expenses:Advertising",
+    "rent": "Expenses:Rent",
+    "lease": "Expenses:Rent",
+    "meal": "Expenses:Meals",
+    "restaurant": "Expenses:Meals",
+    "fuel": "Expenses:Automobile",
+    "gas station": "Expenses:Automobile"
+  }
+}

@@ -1,0 +1,97 @@
+; Northside Rentals — S-Corp residential rental operations
+; Hand-written comment: preserve comments on append; firm-model peer for Amazon/Adobe.
+
+option "operating_currency" "USD"
+option "title" "Northside Rentals"
+
+2024-01-01 open Assets:Bank:Operating
+2024-01-01 open Assets:Bank:SecurityDeposits
+2024-01-01 open Liabilities:CreditCard
+2024-01-01 open Liabilities:Mortgage
+2024-01-01 open Equity:OpeningBalances
+2024-01-01 open Equity:RetainedEarnings
+2024-01-01 open Income:Rental
+2024-01-01 open Expenses:Advertising
+2024-01-01 open Expenses:Insurance
+2024-01-01 open Expenses:Interest
+2024-01-01 open Expenses:Meals
+2024-01-01 open Expenses:Office
+2024-01-01 open Expenses:Office:Supplies
+2024-01-01 open Expenses:OfficerSalary
+2024-01-01 open Expenses:ProfessionalFees
+2024-01-01 open Expenses:Repairs
+2024-01-01 open Expenses:Software
+2024-01-01 open Expenses:Taxes
+2024-01-01 open Expenses:Travel
+2024-01-01 open Expenses:Utilities
+2024-01-01 open Expenses:Uncategorized
+2024-01-01 open Expenses:Wages
+
+2024-01-01 * "Opening Balance"
+  Assets:Bank:Operating          48000.00 USD
+  Equity:OpeningBalances        -48000.00 USD
+
+2025-01-03 * "Tenant ACH" "Unit 12A rent"
+  Assets:Bank:Operating           2200.00 USD
+    class: "building-a"
+    location: "northside"
+  Income:Rental                  -2200.00 USD
+
+2025-01-08 * "Amazon" "Smoke detectors and batteries"
+  Expenses:Office:Supplies         124.55 USD
+    class: "building-a"
+    location: "northside"
+  Assets:Bank:Operating           -124.55 USD
+
+2025-01-15 * "Adobe" "Acrobat for lease docs"
+  Expenses:Software                 29.99 USD
+    class: "corporate"
+    location: "hq"
+  Assets:Bank:Operating            -29.99 USD
+
+2025-01-20 * "Home Depot" "Unit turn repairs"
+  Expenses:Repairs                 640.00 USD
+    class: "building-b"
+    location: "eastside"
+  Assets:Bank:Operating           -640.00 USD
+
+2025-02-01 * "Payroll" "Owner reasonable salary"
+  Expenses:OfficerSalary          6500.00 USD
+    class: "corporate"
+    location: "hq"
+  Assets:Bank:Operating          -6500.00 USD
+
+2025-02-05 * "State Farm" "Landlord policy"
+  Expenses:Insurance               410.00 USD
+    class: "building-a"
+    location: "northside"
+  Assets:Bank:Operating           -410.00 USD
+
+2025-02-12 * "Amazon" "Printer paper and toner"
+  Expenses:Office:Supplies          78.20 USD
+    class: "corporate"
+    location: "hq"
+  Assets:Bank:Operating            -78.20 USD
+
+2025-02-18 * "Facebook Ads" "Vacancy marketing"
+  Expenses:Advertising             220.00 USD
+    class: "building-b"
+    location: "eastside"
+  Assets:Bank:Operating           -220.00 USD
+
+2025-03-01 * "Tenant ACH" "Unit 8C rent"
+  Assets:Bank:Operating           1950.00 USD
+    class: "building-b"
+    location: "eastside"
+  Income:Rental                  -1950.00 USD
+
+2025-03-10 * "Starbucks" "Vendor walkthrough"
+  Expenses:Meals                    18.75 USD
+    class: "corporate"
+    location: "hq"
+  Liabilities:CreditCard           -18.75 USD
+
+2025-03-22 * "Mortgage Payment" "Primary note"
+  Expenses:Interest               1100.00 USD
+  Liabilities:Mortgage             900.00 USD
+  Assets:Bank:Operating          -2000.00 USD

@@ -1,0 +1,40 @@
+{
+  "sole_prop": [
+    {"tax_line": "C-1", "description": "Gross receipts", "form": "Schedule C", "accounts": ["Income:Sales", "Income:Services"]},
+    {"tax_line": "C-4", "description": "Cost of goods sold", "form": "Schedule C", "accounts": ["Expenses:COGS"]},
+    {"tax_line": "C-8", "description": "Advertising", "form": "Schedule C", "accounts": ["Expenses:Advertising"]},
+    {"tax_line": "C-9", "description": "Car and truck expenses", "form": "Schedule C", "accounts": ["Expenses:Automobile"]},
+    {"tax_line": "C-15", "description": "Insurance", "form": "Schedule C", "accounts": ["Expenses:Insurance"]},
+    {"tax_line": "C-18", "description": "Office expense", "form": "Schedule C", "accounts": ["Expenses:Office:Supplies", "Expenses:Office"]},
+    {"tax_line": "C-20b", "description": "Rent — other business property", "form": "Schedule C", "accounts": ["Expenses:Rent"]},
+    {"tax_line": "C-17", "description": "Legal and professional services", "form": "Schedule C", "accounts": ["Expenses:ProfessionalFees"]},
+    {"tax_line": "C-24b", "description": "Meals", "form": "Schedule C", "accounts": ["Expenses:Meals"], "meals_limitation": true},
+    {"tax_line": "C-24a", "description": "Travel", "form": "Schedule C", "accounts": ["Expenses:Travel"]},
+    {"tax_line": "C-25", "description": "Utilities", "form": "Schedule C", "accounts": ["Expenses:Utilities"]},
+    {"tax_line": "C-27a", "description": "Other expenses — Software", "form": "Schedule C", "accounts": ["Expenses:Software"]},
+    {"tax_line": "C-27b", "description": "Other expenses — Bank fees", "form": "Schedule C", "accounts": ["Expenses:BankFees"]}
+  ],
+  "s_corp": [
+    {"tax_line": "1120S-1a", "description": "Gross receipts", "form": "Form 1120-S", "accounts": ["Income:Rental", "Income:Sales", "Income:Services"]},
+    {"tax_line": "1120S-2", "description": "Cost of goods sold", "form": "Form 1120-S", "accounts": ["Expenses:COGS"]},
+    {"tax_line": "1120S-7", "description": "Compensation of officers", "form": "Form 1120-S", "accounts": ["Expenses:OfficerSalary"]},
+    {"tax_line": "1120S-8", "description": "Salaries and wages", "form": "Form 1120-S", "accounts": ["Expenses:Wages"]},
+    {"tax_line": "1120S-11", "description": "Rents", "form": "Form 1120-S", "accounts": ["Expenses:Rent"]},
+    {"tax_line": "1120S-12", "description": "Taxes and licenses", "form": "Form 1120-S", "accounts": ["Expenses:Taxes"]},
+    {"tax_line": "1120S-13", "description": "Interest", "form": "Form 1120-S", "accounts": ["Expenses:Interest"]},
+    {"tax_line": "1120S-16", "description": "Advertising", "form": "Form 1120-S", "accounts": ["Expenses:Advertising"]},
+    {"tax_line": "1120S-19", "description": "Other deductions — Meals", "form": "Form 1120-S", "accounts": ["Expenses:Meals"], "meals_limitation": true},
+    {"tax_line": "1120S-19b", "description": "Other deductions — Insurance", "form": "Form 1120-S", "accounts": ["Expenses:Insurance"]},
+    {"tax_line": "1120S-19c", "description": "Other deductions — Repairs", "form": "Form 1120-S", "accounts": ["Expenses:Repairs"]},
+    {"tax_line": "1120S-19d", "description": "Other deductions — Software", "form": "Form 1120-S", "accounts": ["Expenses:Software"]},
+    {"tax_line": "1120S-19e", "description": "Other deductions — Office", "form": "Form 1120-S", "accounts": ["Expenses:Office:Supplies", "Expenses:Office"]}
+  ],
+  "partnership": [
+    {"tax_line": "1065-1a", "description": "Gross receipts", "form": "Form 1065", "accounts": ["Income:Sales", "Income:Services"]},
+    {"tax_line": "1065-2", "description": "Cost of goods sold", "form": "Form 1065", "accounts": ["Expenses:COGS"]},
+    {"tax_line": "1065-9", "description": "Taxes and licenses", "form": "Form 1065", "accounts": ["Expenses:Taxes"]},
+    {"tax_line": "1065-12", "description": "Advertising", "form": "Form 1065", "accounts": ["Expenses:Advertising"]},
+    {"tax_line": "1065-13b", "description": "Meals", "form": "Form 1065", "accounts": ["Expenses:Meals"], "meals_limitation": true},
+    {"tax_line": "1065-16c", "description": "Other deductions", "form": "Form 1065", "accounts": ["Expenses:Office:Supplies", "Expenses:Software", "Expenses:Insurance"]}
+  ]
+}

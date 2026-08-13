@@ -1,0 +1,147 @@
+; Harbor Lemon Co. — sole proprietor lemonade / multi-class workspace
+; Hand-written comment: do not regenerate this file; append only.
+; Classes: lemonade-stand | catering | corporate
+; Locations: downtown | farmers-market | hq
+
+option "operating_currency" "USD"
+option "title" "Harbor Lemon Co."
+
+2024-01-01 open Assets:Bank:Checking
+2024-01-01 open Assets:Cash
+2024-01-01 open Assets:Prepaid:Expenses
+2024-01-01 open Liabilities:CreditCard
+2024-01-01 open Equity:OpeningBalances
+2024-01-01 open Equity:OwnerDraws
+2024-01-01 open Income:Sales
+2024-01-01 open Income:Services
+2024-01-01 open Expenses:COGS
+2024-01-01 open Expenses:Advertising
+2024-01-01 open Expenses:Automobile
+2024-01-01 open Expenses:BankFees
+2024-01-01 open Expenses:Insurance
+2024-01-01 open Expenses:Meals
+2024-01-01 open Expenses:Office
+2024-01-01 open Expenses:Office:Supplies
+2024-01-01 open Expenses:ProfessionalFees
+2024-01-01 open Expenses:Rent
+2024-01-01 open Expenses:Repairs
+2024-01-01 open Expenses:Software
+2024-01-01 open Expenses:Travel
+2024-01-01 open Expenses:Utilities
+2024-01-01 open Expenses:Uncategorized
+
+2024-01-01 * "Opening Balance"
+  Assets:Bank:Checking           25000.00 USD
+  Equity:OpeningBalances        -25000.00 USD
+
+2025-01-05 * "Sysco" "Produce for lemonade stand"
+  Expenses:COGS                    420.00 USD
+    class: "lemonade-stand"
+    location: "farmers-market"
+  Assets:Bank:Checking            -420.00 USD
+
+2025-01-12 * "Facebook Ads" "Spring campaign"
+  Expenses:Advertising             350.00 USD
+    class: "corporate"
+    location: "hq"
+  Assets:Bank:Checking            -350.00 USD
+
+2025-01-18 * "Amazon" "Cups and napkins"
+  Expenses:Office:Supplies          86.42 USD
+    class: "lemonade-stand"
+    location: "downtown"
+  Assets:Bank:Checking             -86.42 USD
+
+2025-01-22 * "Starbucks" "Client tasting meeting"
+  Expenses:Meals                    48.20 USD
+    class: "catering"
+    location: "downtown"
+  Liabilities:CreditCard           -48.20 USD
+
+2025-02-01 * "Downtown Lease" "Stand rental"
+  Expenses:Rent                    900.00 USD
+    class: "lemonade-stand"
+    location: "downtown"
+  Assets:Bank:Checking            -900.00 USD
+
+2025-02-10 * "Adobe" "Creative Cloud"
+  Expenses:Software                 59.99 USD
+    class: "corporate"
+    location: "hq"
+  Assets:Bank:Checking             -59.99 USD
+
+2025-02-14 * "Shell Oil" "Delivery van fuel"
+  Expenses:Automobile               62.05 USD
+    class: "catering"
+    location: "downtown"
+  Assets:Bank:Checking             -62.05 USD
+
+2025-02-20 * "Cash Sales" "Farmers market weekend"
+  Assets:Bank:Checking            1850.00 USD
+  Income:Sales                   -1850.00 USD
+
+2025-03-01 * "State Farm" "Liability insurance for the period 2025-03-01 to 2025-08-31"
+  Assets:Prepaid:Expenses         1800.00 USD
+    class: "corporate"
+    location: "hq"
+  Assets:Bank:Checking           -1800.00 USD
+
+; Large purchase missing memo/receipt — anomaly candidate
+2025-03-15 * "G-Wagon Detail Co"
+  Expenses:Automobile             1250.00 USD
+    class: "corporate"
+    location: "hq"
+  Assets:Bank:Checking           -1250.00 USD
+
+; Parent-level booking — should be Expenses:Office:Supplies
+2025-03-20 * "Staples" "Misc office"
+  Expenses:Office                  112.00 USD
+    class: "corporate"
+    location: "hq"
+  Assets:Bank:Checking            -112.00 USD
+
+2025-03-28 * "Catering Invoice #441" "Corporate lunch service"
+  Assets:Bank:Checking            2400.00 USD
+  Income:Services                -2400.00 USD
+
+2025-04-02 * "Amazon" "Blender parts"
+  Expenses:COGS                     64.10 USD
+    class: "lemonade-stand"
+    location: "downtown"
+  Assets:Bank:Checking             -64.10 USD
+
+2025-04-08 * "Uber" "Supplier run"
+  Expenses:Travel                   28.40 USD
+    class: "catering"
+    location: "downtown"
+  Liabilities:CreditCard           -28.40 USD
+
+2025-04-15 * "Verizon" "Hotspot for stand POS"
+  Expenses:Utilities                85.00 USD
+    class: "lemonade-stand"
+    location: "downtown"
+  Assets:Bank:Checking             -85.00 USD
+
+2025-05-01 * "AMAZON MKTPLACE PA" ""
+  fingerprint: "2025-05-01|54.33|amazon mktplace pa"
+  Expenses:Office:Supplies  54.33 USD
+  Assets:Bank:Checking  -54.33 USD
+
+
+2025-05-05 * "SHELL OIL 7741" ""
+  fingerprint: "2025-05-05|58.20|shell oil"
+  Expenses:Automobile  58.20 USD
+  Assets:Bank:Checking  -58.20 USD
+
+
+2025-05-06 * "STARBUCKS STORE 123" ""
+  fingerprint: "2025-05-06|12.45|starbucks store"
+  Expenses:Meals  12.45 USD
+  Assets:Bank:Checking  -12.45 USD
+
+
+2025-05-07 * "FACEBOOK ADS" ""
+  fingerprint: "2025-05-07|200.00|facebook ads"
+  Expenses:Advertising  200.00 USD
+  Assets:Bank:Checking  -200.00 USD
+

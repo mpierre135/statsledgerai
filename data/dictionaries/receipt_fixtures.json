@@ -1,0 +1,17 @@
+{
+  "amazon_office_receipt.pdf": {
+    "merchant": "Amazon",
+    "date": "2025-03-12",
+    "amount": "86.42"
+  },
+  "starbucks_lunch.png": {
+    "merchant": "Starbucks",
+    "date": "2025-04-02",
+    "amount": "24.18"
+  },
+  "shell_fuel.jpg": {
+    "merchant": "Shell Oil",
+    "date": "2025-05-11",
+    "amount": "62.05"
+  }
+}

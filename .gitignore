@@ -1,0 +1,23 @@
+# Python
+backend/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Data / secrets
+data/app.db
+data/app.db-*
+data/uploads/*
+!data/uploads/.gitkeep
+*.beancount.lock
+
+# OS / IDE
+.DS_Store
+.env
+.env.local
+*.log
