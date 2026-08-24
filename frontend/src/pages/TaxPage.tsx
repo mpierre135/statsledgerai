@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Card, formatMoney } from '../components'
-import { getBookToTax, getChecklist, getPriorYears, uploadTaxDocs } from '../api'
+import { API_BASE, getBookToTax, getChecklist, getPriorYears, uploadTaxDocs } from '../api'
 
 export function TaxPage() {
   const { clientId = '' } = useParams()
@@ -60,7 +60,7 @@ export function TaxPage() {
       <Card
         title="Book-to-tax mapping"
         action={
-          <a className="text-xs text-emerald-600 hover:underline" href={`/api/clients/${clientId}/tax/lead-sheet.xlsx`}>
+          <a className="text-xs text-emerald-600 hover:underline" href={`${API_BASE}/clients/${clientId}/tax/lead-sheet.xlsx`}>
             Download lead sheet
           </a>
         }
