@@ -16,6 +16,8 @@ createRoot(document.getElementById('root')!).render(
       publishableKey={publishableKey}
       signInUrl="/sign-in"
       signUpUrl="/sign-up"
+      signInFallbackRedirectUrl="/"
+      signUpFallbackRedirectUrl="/"
       afterSignOutUrl="/sign-in"
     >
       <App />
