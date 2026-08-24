@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { format, parseISO } from 'date-fns'
 import { useParams } from 'react-router-dom'
 import { Card, Kpi, LedgerBanner, formatMoney } from '../components'
-import { API_BASE, getAccounts, getTransactions, getTrialBalance } from '../api'
+import { downloadAuthFile, getAccounts, getTransactions, getTrialBalance } from '../api'
 
 export function LedgerPage() {
   const { clientId = '' } = useParams()
@@ -40,12 +40,20 @@ export function LedgerPage() {
           title="Journal"
           action={
             <div className="flex gap-2 text-xs">
-              <a className="text-emerald-600 hover:underline" href={`${API_BASE}/clients/${clientId}/export/trial-balance.csv`}>
+              <button
+                type="button"
+                className="text-emerald-600 hover:underline"
+                onClick={() => downloadAuthFile(`/clients/${clientId}/export/trial-balance.csv`, `${clientId}-trial-balance.csv`)}
+              >
                 CSV
-              </a>
-              <a className="text-emerald-600 hover:underline" href={`${API_BASE}/clients/${clientId}/export/trial-balance.xlsx`}>
+              </button>
+              <button
+                type="button"
+                className="text-emerald-600 hover:underline"
+                onClick={() => downloadAuthFile(`/clients/${clientId}/export/trial-balance.xlsx`, `${clientId}-trial-balance.xlsx`)}
+              >
                 Excel
-              </a>
+              </button>
             </div>
           }
         >

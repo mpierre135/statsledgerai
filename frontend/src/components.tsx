@@ -1,3 +1,4 @@
+import { UserButton } from '@clerk/react'
 import { useEffect, useState, type ReactNode } from 'react'
 import { Link, NavLink, Outlet, useNavigate, useParams } from 'react-router-dom'
 import {
@@ -74,14 +75,17 @@ export function AppShell() {
               ))}
             </select>
           </div>
-          <button
-            type="button"
-            onClick={toggle}
-            className="rounded-lg border border-slate-200 p-2 transition hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
-            aria-label="Toggle theme"
-          >
-            {dark ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={toggle}
+              className="rounded-lg border border-slate-200 p-2 transition hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
+              aria-label="Toggle theme"
+            >
+              {dark ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
+            <UserButton />
+          </div>
         </div>
       </header>
 

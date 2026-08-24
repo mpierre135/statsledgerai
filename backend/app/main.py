@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import sys
 from datetime import date, datetime
 from decimal import Decimal
@@ -10,7 +11,7 @@ from typing import Any, Optional
 
 from fastapi import FastAPI, File, HTTPException, Query, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, Response
+from fastapi.responses import FileResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -21,6 +22,7 @@ if str(BACKEND_ROOT) not in sys.path:
 
 from app import db
 from app.advisory import reasonable_comp, tax_savings_report
+from app.auth import ALLOWED_EMAIL, email_for_user, is_public_path, verify_session_token
 from app.bank import BankRow, CsvOfxSource
 from app.classify import classify_rows
 from app.close import close_checklist, detect_accrual_candidates, detect_anomalies, payee_groups
@@ -51,6 +53,26 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.middleware("http")
+async def require_firm_user(request: Request, call_next):
+    if is_public_path(request.url.path, request.method):
+        return await call_next(request)
+    secret = os.environ.get("CLERK_SECRET_KEY")
+    if not secret:
+        return await call_next(request)
+    header = request.headers.get("authorization", "")
+    if not header.lower().startswith("bearer "):
+        return JSONResponse({"detail": "Sign in required"}, status_code=401)
+    try:
+        claims = verify_session_token(header.split(" ", 1)[1].strip())
+        email = email_for_user(str(claims.get("sub", "")))
+    except Exception:
+        return JSONResponse({"detail": "Invalid session"}, status_code=401)
+    if email != ALLOWED_EMAIL:
+        return JSONResponse({"detail": f"Access limited to {ALLOWED_EMAIL}"}, status_code=403)
+    return await call_next(request)
 
 
 @app.on_event("startup")

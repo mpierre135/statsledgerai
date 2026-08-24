@@ -6,6 +6,24 @@ const api = axios.create({
   baseURL: API_BASE,
 })
 
+type TokenGetter = () => Promise<string | null>
+
+let tokenGetter: TokenGetter | null = null
+
+export function setAuthTokenGetter(getter: TokenGetter | null) {
+  tokenGetter = getter
+}
+
+api.interceptors.request.use(async (config) => {
+  if (tokenGetter) {
+    const token = await tokenGetter()
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`
+    }
+  }
+  return config
+})
+
 export type Client = {
   id: string
   name: string
@@ -15,6 +33,16 @@ export type Client = {
   close_date?: string | null
   ledger_ok?: boolean
   ledger_errors?: { file: string; line?: number; message: string }[]
+}
+
+export async function downloadAuthFile(path: string, filename: string) {
+  const { data } = await api.get(path, { responseType: 'blob' })
+  const url = URL.createObjectURL(data)
+  const link = document.createElement('a')
+  link.href = url
+  link.download = filename
+  link.click()
+  URL.revokeObjectURL(url)
 }
 
 export async function getClients() {

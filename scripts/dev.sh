@@ -13,6 +13,16 @@ if [[ ! -d node_modules ]]; then
   npm install
 fi
 
+if [[ -f "$ROOT/frontend/.env.local" ]]; then
+  set -a
+  # shellcheck disable=SC1091
+  source "$ROOT/frontend/.env.local"
+  set +a
+  export CLERK_SECRET_KEY="${CLERK_SECRET_KEY:-}"
+  export CLERK_PUBLISHABLE_KEY="${VITE_CLERK_PUBLISHABLE_KEY:-}"
+  export ALLOWED_EMAIL="${VITE_ALLOWED_EMAIL:-mpierre135@gmail.com}"
+fi
+
 # seed on first API boot
 (
   cd "$ROOT/backend"
