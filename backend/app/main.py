@@ -47,7 +47,7 @@ app = FastAPI(title="StatsLedger AI", version="0.1.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -76,6 +76,11 @@ def _ledger_http(err: LedgerError) -> HTTPException:
 
 
 # ---------- Health / seed ----------
+
+@app.get("/")
+def root() -> dict[str, str]:
+    return {"status": "ok", "service": "statsledger-ai"}
+
 
 @app.get("/api/health")
 def health() -> dict[str, str]:

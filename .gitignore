@@ -21,3 +21,5 @@ data/uploads/*
 .env
 .env.local
 *.log
+.vercel
+frontend/.vercel
